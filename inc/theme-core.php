@@ -27,7 +27,8 @@ add_action('after_setup_theme', 'theme_languages');
 // 资源加载
 function theme_autoload()
 {
-    if (kratos_option('g_cdn', false)) {
+    $enable_cdn = kratos_option('g_cdn', false);
+    if ($enable_cdn) {
         $dir = 'https://cdn.jsdelivr.net/gh/vtrois/kratos@' . THEME_VERSION;
     } else {
         $dir = get_template_directory_uri();
