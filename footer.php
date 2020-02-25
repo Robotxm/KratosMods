@@ -10,19 +10,19 @@
     <div class="f-toolbox">
         <div class="gotop <?php if ( kratos_option('s_wechat', false) ){ echo 'gotop-haswechat'; } ?>">
             <div class="gotop-btn">
-                <span class="kicon i-up"></span>
+                <span class="fas fa-chevron-up"></span>
             </div>
         </div>
         <?php if ( kratos_option('s_wechat', false) ){ ?>
         <div class="wechat">
-            <span class="kicon i-wechat"></span>
+            <span class="fab fa-weixin"></span>
             <div class="wechat-pic">
                 <img src="<?php echo kratos_option('s_wechat_url', get_template_directory_uri() . '/assets/img/wechat.png'); ?>">
             </div>
         </div>
         <?php } ?>
         <div class="search">
-            <span class="kicon i-find"></span>
+            <span class="fas fa-search"></span>
             <form class="search-form" role="search" method="get" action="<?php echo home_url('/'); ?>">
                 <input type="text" name="s" id="search" placeholder="<?php _e('搜点什么呢?', 'kratos'); ?>" style="display:none"/>
             </form>
@@ -33,10 +33,10 @@
             <div class="col-12 text-center">
                 <p class="social">
                 <?php
-                    $social = array('s_sina', 's_bilibili', 's_coding', 's_gitee', 's_twitter', 's_telegram', 's_linkedin', 's_youtube', 's_github', 's_stackflow', 's_email');
+                    $social = array('weibo', 's_bilibili', 's_coding', 's_gitee', 'twitter', 'telegram', 'linkedin', 'youtube', 'github', 'stack-overflow', 'envelope');
                     foreach ($social as $social) {
                         if (kratos_option($social)) {
-                            echo '<a target="_blank" rel="nofollow" href="' . kratos_option($social . '_url') . '"><i class="kicon i-' . str_replace("s_", "", $social) . '"></i></a>';
+                            echo '<a target="_blank" rel="nofollow" href="' . kratos_option($social . '_url') . '"><i class="fa' . ($social == 'envelope' ? 's' : 'b') . ' fa-' . $social . '"></i></a>';
                         }
                     }
                 ?>
@@ -44,7 +44,7 @@
                 <?php
                     $sitename = get_bloginfo('name');
                     echo '<p>' . kratos_option('s_copyright', 'COPYRIGHT © 2020 ' . $sitename . '. ALL RIGHTS RESERVED.') . '</p>';
-                    echo '<p>THEME <a href="https://github.com/vtrois/kratos" target="_blank" rel="nofollow">KRATOS</a> MADE BY <a href="https://www.vtrois.com/" target="_blank" rel="nofollow">VTROIS</a></p>';
+                    echo '<p>THEME <a href="https://github.com/vtrois/kratos" target="_blank" rel="nofollow">KRATOS</a> MADE BY <a href="https://www.vtrois.com/" target="_blank" rel="nofollow">VTROIS</a>, <a href="https://github.com/Robotxm/KratosMods" target="_blank" rel="nofollow">MODS</a> CREATED BY <a href="https://moefactory.com/" target="_blank" rel="nofollow">ROBOTXM</a></p>';
                     if (kratos_option('s_icp')) {
                         echo '<p><a href="http://www.beian.miit.gov.cn/" target="_blank" rel="nofollow">' . kratos_option('s_icp') . '</a></p>';
                     }

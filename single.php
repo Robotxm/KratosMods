@@ -30,10 +30,8 @@ get_header(); ?>
                         <div class="header">
                             <h1 class="title"><?php the_title(); ?></h1>
                             <div class="meta">
-                            <span><?php echo get_the_date('Y年m月d日'); ?></span>
-                            <span ><?php echo get_post_views(); _e('点热度' , 'kratos'); ?></span>
-                            <span><?php if (get_post_meta($post->ID, 'love', true)) { echo get_post_meta($post->ID, 'love', true); } else {echo '0'; } _e('人点赞', 'kratos'); ?></span>
-                            <span><?php comments_number('0', '1', '%'); _e('条评论', 'kratos'); ?></span>
+                            <i class="fas fa-calendar-day" style="margin-right: 4px"></i><span><?php echo get_the_date('Y 年 m 月 d 日'); ?></span>
+                            <i class="fas fa-comment-alt" style="margin-right: 4px"></i><span><?php comments_number('0', '1', '%'); ?></span>
                             <?php if (current_user_can('edit_posts')){ echo '<span>'; edit_post_link(__('编辑文章', 'kratos')); echo '</span>'; }; ?>
                             </div>
                         </div><!-- .header -->
@@ -59,45 +57,29 @@ get_header(); ?>
                                 }
                             }
                             ?>
-                        </div><!-- .content -->
-                        <div class="copyright">
-                            <span class="text-center">
-                                <?php 
-                                    $cc_array = array(
-                                        'one' => __('知识共享署名 4.0 国际许可协议', 'kratos'),
-                                        'two' => __('知识共享署名-非商业性使用 4.0 国际许可协议', 'kratos'),
-                                        'three' => __('知识共享署名-禁止演绎 4.0 国际许可协议', 'kratos'),
-                                        'four' => __('知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议', 'kratos'),
-                                        'five' => __('知识共享署名-相同方式共享 4.0 国际许可协议', 'kratos'),
-                                        'six' => __('知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议', 'kratos'),
-                                    );
-                                    $select_cc = $cc_array[kratos_option('g_cc', 'one')];
-                                    printf( __( '本作品采用 %s 进行许可','kratos' ) , $select_cc );?>
-                            </span>
-                        </div><!-- .copyright -->
+                        </div>
                         <div class="footer clearfix">
                             <div class="tags float-left">
-                                <span><?php _e('标签：' , 'kratos'); ?></span>
+                                <span class="fas fa-tags" style="margin-right: 4px"></span>
                                 <?php if ( get_the_tags() ) { the_tags('', ' ', ''); } else{ echo '<a>' . __( '暂无' , 'kratos') . '</a>';  }?>
                             </div>
                             <div class="tool float-right d-none d-lg-block">
                                 <div data-toggle="tooltip" data-html="true" data-original-title="<?php _e('最后更新：','kratos'); the_modified_date( 'Y-m-d H:i' ) ?>">
-                                    <span><?php _e('最后更新：','kratos'); ?><?php the_modified_date('Y年m月d日'); ?></span>
+                                    <span><i class="fas fa-sync-alt" style="margin-right: 4px"></i><?php the_modified_date('Y 年 m 月 d 日'); ?></span>
                                 </div>
                             </div>
                         </div><!-- .footer -->
                     </div><!-- .article -->
                 <?php endif; ?>
-                <?php require get_template_directory() . '/pages/page-toolbar.php'; ?>
                 <nav class="navigation post-navigation clearfix" role="navigation">
                     <?php
                     $prev_post = get_previous_post(TRUE);
                     if(!empty($prev_post)){
-                        echo '<div class="nav-previous clearfix"><a title="'.$prev_post->post_title .'" href="'.get_permalink($prev_post->ID).'">'. __('< 上一篇','kratos') .'</a></div>';
+                        echo '<div class="nav-previous"><a title="'.$prev_post->post_title .'" href="'.get_permalink($prev_post->ID).'"><i class="fas fa-chevron-left" style="margin-right: 4px"></i>'. __('上一篇','kratos') .'</a></div>';
                     }
                     $next_post = get_next_post(TRUE);
                     if(!empty($next_post)){
-                        echo '<div class="nav-next"><a title="'. $next_post->post_title .'" href="'. get_permalink($next_post->ID) .'">'. __('下一篇 >','kratos') .'</a></div>';
+                        echo '<div class="nav-next"><a title="'. $next_post->post_title .'" href="'. get_permalink($next_post->ID) .'">'. __('下一篇','kratos') .'<i class="fas fa-chevron-right" style="margin-left: 4px"></i></a></div>';
                     }?>
                 </nav>
                 <?php comments_template(); ?>

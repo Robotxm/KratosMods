@@ -32,7 +32,7 @@ if (comments_open()) { ?>
 					<div class="col-md-6 comment-form-author">
 						<div class="input-group">
 							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="kicon i-user"></i></span>
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
 							</div>
 							<input class="form-control" id="author" placeholder="昵称" name="author" type="text" value="<?php echo $comment_author; ?>" required="required">
 						</div>
@@ -40,7 +40,7 @@ if (comments_open()) { ?>
 					<div class="col-md-6 mt-3 mt-md-0 comment-form-email">
 						<div class="input-group">
 							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="kicon i-cemail"></i></span>
+								<span class="input-group-text"><i class="fas fa-envelope"></i></span>
 							</div>
 							<input id="email" class="form-control" name="email" placeholder="邮箱" type="email" value="<?php echo $comment_author_email; ?>" required="required">
 						</div>
@@ -51,7 +51,7 @@ if (comments_open()) { ?>
 					<textarea class="form-control" id="comment" name="comment" rows="7" required="required"></textarea>
 					<div class="text-bar clearfix">
 						<div class="tool float-left">
-							<a class="addbtn" href="#" id="addsmile"><i class="kicon i-face"></i></a>
+							<a class="addbtn" href="#" id="addsmile"><i class="far fa-laugh-squint"></i></a>
 							<div class="smile">
 								<div class="clearfix">
 									<?php echo $smilies; ?>
