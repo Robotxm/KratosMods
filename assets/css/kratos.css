@@ -121,6 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 	min-width: 25px;
 	min-height: 25px;
 	border: 1px solid #e0e0e0;
+	border-radius: 50%;
 	background-color: #bbbbbb;
 }
 
@@ -769,12 +770,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .k-main .details .article .content ul,
-.k-main .details .article .content ol {
+.k-main .details .article .content ol:not(.EnlighterJS) {
 	margin: 0 0 16px;
 	padding-left: 16px;
 }
 
-.k-main .details .article .content ol > li {
+.k-main .details .article .content ol:not(.EnlighterJS) > li {
 	margin-bottom: 6px;
 	padding-left: 2px;
 	list-style: decimal;
@@ -832,16 +833,11 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.5;
 }
 
-.k-main .details .article .content li:not(.blocks-gallery-item) {
-	margin-bottom: 6px;
-	list-style: circle;
-}
-
 .k-main .details .article .content li.blocks-gallery-item {
 	list-style: none;
 }
 
-.k-main .details .article .content ol, .k-main .details .article .content ul {
+.k-main .details .article .content ol:not(.EnlighterJS), .k-main .details .article .content ul {
 	margin: 0;
 }
 
