@@ -281,7 +281,7 @@ class widget_posts extends WP_Widget
         echo '<div class="widget w-recommended">';
         ?>
         <div class="nav nav-tabs d-none d-xl-flex" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link" id="nav-new-tab" data-toggle="tab" href="#nav-new" role="tab" aria-controls="nav-new" aria-selected="false"><i class="fas fa-link"></i><?php _e('最新', 'kratos');?></a>
+            <a class="nav-item nav-link" id="nav-new-tab" data-toggle="tab" href="#nav-new" role="tab" aria-controls="nav-new" aria-selected="false"><i class="fas fa-sort-amount-up"></i><?php _e('最新', 'kratos');?></a>
             <a class="nav-item nav-link active" id="nav-hot-tab" data-toggle="tab" href="#nav-hot" role="tab" aria-controls="nav-hot" aria-selected="true"><i class="fab fa-hotjar"></i><?php _e('热点', 'kratos');?></a>
             <a class="nav-item nav-link" id="nav-random-tab" data-toggle="tab" href="#nav-random" role="tab" aria-controls="nav-random" aria-selected="false"><i class="fas fa-random"></i><?php _e('随机', 'kratos');?></a>
         </div>
