@@ -3,7 +3,7 @@
  * 侧栏小工具
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2020.02.22
+ * @version 2020.02.23
  */
 
 // 添加小工具
@@ -20,15 +20,9 @@ function widgets_init()
     // 去掉默认小工具
     $wp_widget = array(
         'WP_Widget_Pages',
-        'WP_Widget_Calendar',
         'WP_Widget_Archives',
-        'WP_Widget_Media_Audio',
-        'WP_Widget_Media_Image',
-        'WP_Widget_Media_Gallery',
-        'WP_Widget_Media_Video',
         'WP_Widget_Meta',
         'WP_Widget_Search',
-        'WP_Widget_Text',
         'WP_Widget_Categories',
         'WP_Widget_Recent_Posts',
         'WP_Widget_Recent_Comments',
@@ -160,7 +154,7 @@ class widget_about extends WP_Widget
 
     public function widget($args, $instance)
     {
-        $introduce = kratos_option('a_about', '保持饥渴的专注，追求最佳的品质');
+        $introduce = kratos_option('a_about', __('保持饥渴的专注，追求最佳的品质', 'kratos'));
         $avatar = kratos_option('a_gravatar', get_template_directory_uri() . '/assets/img/gravatar.png');
         $background = !empty($instance['background']) ? $instance['background'] : get_stylesheet_directory_uri() . '/assets/img/about-background.png';
 

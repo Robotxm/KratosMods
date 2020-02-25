@@ -3,7 +3,7 @@
  * 主题选项
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2020.02.15
+ * @version 2020.02.23
  */
 
 function getrobots()
@@ -35,6 +35,11 @@ function kratos_options()
         'five' => __('知识共享署名-相同方式共享 4.0 国际许可协议', 'kratos'),
         'six' => __('知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议', 'kratos'),
     );
+
+	$top_array = array(
+		'banner' => __( '图片导航', 'kratos' ),
+		'color' => __( '颜色导航', 'kratos' ),
+	);
 
     $options = array();
 
@@ -82,6 +87,14 @@ function kratos_options()
     );
 
     $options[] = array(
+        'name' => __('Gutenberg 编辑器', 'kratos'),
+        'desc' => __('开启 Gutenberg 编辑器', 'kratos'),
+        'std' => '0',
+        'id' => 'g_gutenberg',
+        'type' => 'checkbox',
+    );
+
+    $options[] = array(
         'name' => __('Gravatar 加速', 'kratos'),
         'desc' => __('开启 Gravatar 头像加速', 'kratos'),
         'std' => '0',
@@ -90,7 +103,7 @@ function kratos_options()
     );
 
     $options[] = array(
-        'name' => __('导航栏颜色', 'kratos'),
+        'name' => __('Chrome 导航栏颜色', 'kratos'),
         'desc' => __('Chrome 移动端浏览器导航栏的颜色', 'kratos'),
         'id' => 'g_chrome',
         'std' => '#282a2c',
@@ -269,8 +282,8 @@ function kratos_options()
 
     $options[] = array(
         'name' => __('个人简介', 'kratos'),
+        'std' => __('保持饥渴的专注，追求最佳的品质', 'kratos'),
         'id' => 'a_about',
-        'std' => '保持饥渴的专注，追求最佳的品质',
         'type' => 'textarea',
     );
 
@@ -327,14 +340,38 @@ function kratos_options()
     );
 
     $options[] = array(
+        'id' => 'm_sendmail',
+        'class' => 'hidden',
+        'type' => 'sendmail',
+    );
+
+    $options[] = array(
         'name' => __('顶部配置', 'kratos'),
         'type' => 'heading',
     );
 
+	$options[] = array(
+        'name' => __( '顶部样式', 'kratos' ),
+        'desc' => __('请选择顶部样式（颜色导航或图片导航）', 'kratos'),
+		'id' => 'top_select',
+		'std' => 'banner',
+		'type' => 'select',
+		'options' => $top_array
+	);
+
     $options[] = array(
-        'name' => __('顶部图片', 'kratos'),
+        'name' => __('颜色导航', 'kratos'),
+        'id' => 'top_color',
+        'std' => '#24292e',
+        'class' => 'hidden',
+        'type' => 'color',
+    );
+
+    $options[] = array(
+        'name' => __('图片导航', 'kratos'),
         'id' => 'top_img',
         'std' => get_template_directory_uri() . '/assets/img/background.png',
+        'class' => 'hidden',
         'type' => 'upload',
     );
 
@@ -342,13 +379,15 @@ function kratos_options()
         'name' => __('副标题', 'kratos'),
         'id' => 'top_title',
         'std' => 'Kratos',
+        'class' => 'hidden',
         'type' => 'text',
     );
 
     $options[] = array(
         'name' => __('标题描述', 'kratos'),
+        'std' => __('一款专注于用户阅读体验的响应式博客主题', 'kratos'),
         'id' => 'top_describe',
-        'std' => '一款专注于用户阅读体验的响应式博客主题',
+        'class' => 'hidden',
         'type' => 'text',
     );
 

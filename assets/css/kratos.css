@@ -133,6 +133,22 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 23px 0;
 }
 
+.k-main.color {
+	padding-top: 103px;
+}
+
+@media only screen and (max-width: 992px) {
+	.k-main.color {
+		padding-top: 92px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.k-main.color {
+		padding-top: 83px;
+	}
+}
+
 /*--------------------------------------------------------------
 2. 导航
 --------------------------------------------------------------*/
@@ -752,12 +768,23 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: -3px;
 }
 
-.k-main .details .article .content ul {
+.k-main .details .article .content ul,
+.k-main .details .article .content ol {
+	margin: 0 0 16px;
 	padding-left: 16px;
-	list-style-type: square;
 }
 
-.k-main .details .article .content li {
+.k-main .details .article .content ol > li {
+	margin-bottom: 6px;
+	padding-left: 2px;
+	list-style: decimal;
+	line-height: 22px;
+}
+
+.k-main .details .article .content ul > li {
+	margin-bottom: 6px;
+	padding-left: 2px;
+	list-style: circle;
 	line-height: 22px;
 }
 
@@ -1602,12 +1629,30 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: 4px;
 	border: 1px solid #eeeeee;
 	color: #333;
+	list-style: none;
 	text-align: center;
 	text-transform: uppercase;
 	font-size: 14px;
 }
 
-.k-main .sidebar .w-tags .item a:hover {
+.k-main .sidebar .widget_links ul li {
+	display: inline-block;
+	margin: 0 2px 4px 0;
+	padding: 2px 0;
+	width: 140px;
+	color: #333;
+	list-style: none;
+	font-size: 15px;
+}
+
+.k-main .sidebar .widget_links ul li img {
+	margin-top: -3px;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+}
+
+.k-main .sidebar .w-tags .item a:hover,.k-main .sidebar .widget_links ul li:hover {
 	background-color: #eeeeee;
 }
 
@@ -1629,6 +1674,40 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-tabs {
 	border-bottom: none;
+}
+
+.k-main .sidebar .widget_links ul {
+	margin-bottom: 0;
+	padding-left: 0;
+}
+
+.k-main .sidebar .widget_links ul li a {
+	color: #333;
+}
+
+.k-main .sidebar #wp-calendar {
+	width: 100%;
+}
+
+.k-main .sidebar caption,.k-main .sidebar tfoot {
+	display: none;
+}
+
+.k-main .sidebar tbody tr {
+	font-weight: 400;
+	font-size: 14px;
+	font-family: arial;
+}
+
+.k-main .sidebar tbody a {
+	display: block;
+	border: 1px solid #00a2ff;
+	background: #edf8ff;
+}
+
+.k-main .sidebar tbody tr td,.k-main .sidebar thead tr th {
+	text-align: center;
+	cursor: default;
 }
 
 @media screen and (max-width:1200px) {
