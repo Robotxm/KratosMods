@@ -141,7 +141,7 @@ function pagelist($range = 5)
     if ($max_page > 1) {if (!$paged) {$paged = 1;}
         echo "<div class='paginations'>";
         if ($paged > 1) {
-            echo '<a href="' . get_pagenum_link($paged - 1) . '" class="prev" title="上一页"><i class="kicon i-larrows"></i></a>';
+            echo '<a href="' . get_pagenum_link($paged - 1) . '" class="prev" title="上一页"><i class="fas fa-arrow-left"></i></a>';
         }
         if ($max_page > $range) {
             if ($paged < $range) {
@@ -191,7 +191,7 @@ function pagelist($range = 5)
             }
         }
         if ($paged < $max_page) {
-            echo '<a href="' . get_pagenum_link($paged + 1) . '" class="next" title="下一页"><i class="kicon i-rarrows"></i></a>';
+            echo '<a href="' . get_pagenum_link($paged + 1) . '" class="next" title="下一页"><i class="fas fa-arrow-right"></i></a>';
         }
         echo "</div>";
     }
@@ -293,7 +293,7 @@ function comment_callbacks($comment, $args, $depth = 2)
     ;?></div>
             <div class="tool reply ml-2 d-inline-block float-right">
             <?php
-$defaults = array('add_below' => 'comment', 'respond_id' => 'respond', 'reply_text' => '<i class="kicon i-reply"></i><span class="ml-1">' . __('回复', 'kratos') . '</span>');
+$defaults = array('add_below' => 'comment', 'respond_id' => 'respond', 'reply_text' => '<i class="far fa-comment-dots"></i><span class="ml-1">' . __('回复', 'kratos') . '</span>');
     comment_reply_link(array_merge($defaults, array('depth' => $depth, 'max_depth' => $args['max_depth'])));?>
             </div>
         </div>

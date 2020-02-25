@@ -52,7 +52,7 @@ function most_comm_posts($days = 30, $nums = 6)
             $title = $topten->post_title;
             $commentcount = $topten->comment_count;
             if ($commentcount >= 0) {
-                $output .= '<a class="bookmark-item" title="' . $title . '" href="' . get_permalink($postid) . '" rel="bookmark"><i class="kicon i-book"></i>';
+                $output .= '<a class="bookmark-item" title="' . $title . '" href="' . get_permalink($postid) . '" rel="bookmark"><i class="fas fa-book"></i>';
                 $output .= strip_tags($title);
                 $output .= '</a>';
             }
@@ -281,9 +281,9 @@ class widget_posts extends WP_Widget
         echo '<div class="widget w-recommended">';
         ?>
         <div class="nav nav-tabs d-none d-xl-flex" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link" id="nav-new-tab" data-toggle="tab" href="#nav-new" role="tab" aria-controls="nav-new" aria-selected="false"><i class="kicon i-tabnew"></i><?php _e('最新', 'kratos');?></a>
-            <a class="nav-item nav-link active" id="nav-hot-tab" data-toggle="tab" href="#nav-hot" role="tab" aria-controls="nav-hot" aria-selected="true"><i class="kicon i-tabhot"></i><?php _e('热点', 'kratos');?></a>
-            <a class="nav-item nav-link" id="nav-random-tab" data-toggle="tab" href="#nav-random" role="tab" aria-controls="nav-random" aria-selected="false"><i class="kicon i-tabrandom"></i><?php _e('随机', 'kratos');?></a>
+            <a class="nav-item nav-link" id="nav-new-tab" data-toggle="tab" href="#nav-new" role="tab" aria-controls="nav-new" aria-selected="false"><i class="fas fa-link"></i><?php _e('最新', 'kratos');?></a>
+            <a class="nav-item nav-link active" id="nav-hot-tab" data-toggle="tab" href="#nav-hot" role="tab" aria-controls="nav-hot" aria-selected="true"><i class="fab fa-hotjar"></i><?php _e('热点', 'kratos');?></a>
+            <a class="nav-item nav-link" id="nav-random-tab" data-toggle="tab" href="#nav-random" role="tab" aria-controls="nav-random" aria-selected="false"><i class="fas fa-random"></i><?php _e('随机', 'kratos');?></a>
         </div>
         <div class="nav nav-tabs d-xl-none" id="nav-tab" role="tablist">
             <a class="nav-item nav-link" id="nav-new-tab" data-toggle="tab" href="#nav-new" role="tab" aria-controls="nav-new" aria-selected="false"><?php _e('最新', 'kratos');?></a>
@@ -293,7 +293,7 @@ class widget_posts extends WP_Widget
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade" id="nav-new" role="tabpanel" aria-labelledby="nav-new-tab">
             <?php $myposts = get_posts('numberposts=' . $number . ' & offset=0');foreach ($myposts as $post): ?>
-                <a class="bookmark-item" title="<?php echo $post->post_title; ?>" href="<?php echo get_permalink($post->ID); ?>" rel="bookmark"><i class="kicon i-book"></i><?php echo strip_tags($post->post_title) ?></a>
+                <a class="bookmark-item" title="<?php echo $post->post_title; ?>" href="<?php echo get_permalink($post->ID); ?>" rel="bookmark"><i class="fas fa-book" style="margin-right: 4px"></i><?php echo strip_tags($post->post_title) ?></a>
             <?php endforeach;?>
             </div>
             <div class="tab-pane fade show active" id="nav-hot" role="tabpanel" aria-labelledby="nav-hot-tab">
@@ -301,7 +301,7 @@ class widget_posts extends WP_Widget
             </div>
             <div class="tab-pane fade" id="nav-random" role="tabpanel" aria-labelledby="nav-random-tab">
             <?php $myposts = get_posts('numberposts=' . $number . ' & offset=0 & orderby=rand');foreach ($myposts as $post): ?>
-                <a class="bookmark-item" title="<?php echo $post->post_title; ?>" href="<?php echo get_permalink($post->ID); ?>" rel="bookmark"><i class="kicon i-book"></i><?php echo strip_tags($post->post_title) ?></a>
+                <a class="bookmark-item" title="<?php echo $post->post_title; ?>" href="<?php echo get_permalink($post->ID); ?>" rel="bookmark"><i class="fas fa-book" style="margin-right: 4px"></i><?php echo strip_tags($post->post_title) ?></a>
             <?php endforeach;?>
             </div>
         </div>
