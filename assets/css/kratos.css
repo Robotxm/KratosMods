@@ -672,9 +672,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .k-main .details .article .breadcrumb-box .breadcrumb li {
 	margin-bottom: 0;
-	padding-left: 0;
 	list-style: none;
-	line-height: auto;
 }
 
 .k-main .details .article .breadcrumb-box .breadcrumb-item.active {
@@ -714,6 +712,12 @@ h1, h2, h3, h4, h5, h6 {
 	word-break: break-all;
 }
 
+.k-main .details .article .content::after, .k-main .details .article .content p::after {
+	clear: both;
+	display: block;
+	content: "";
+}
+
 .k-main .details .article h1, .k-main .details .article .content h2, .k-main .details .article .content h3, .k-main .details .article .content h4, .k-main .details .article .content h5, .k-main .details .article .content h6 {
 	margin-top: 24px;
 	margin-bottom: 16px;
@@ -739,12 +743,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .k-main .details .article .content h2.title {
-	font-size: 20px;
+	margin: 16px -16px;
 	padding: 0 10px;
 	border-left: 5px solid #00a2ff;
 	background-color: rgba(243, 243, 243, .7);
+	font-size: 20px;
 	line-height: 41px;
-	margin: 16px -16px;
 }
 
 .k-main .details .article .content h3 {
@@ -897,6 +901,10 @@ h1, h2, h3, h4, h5, h6 {
 	list-style: none;
 }
 
+.k-main .details .article .content .wp-caption {
+	max-width: 100%;
+}
+
 .k-main .details .article .content img {
 	height: auto;
 	max-width: 100%;
@@ -922,8 +930,12 @@ h1, h2, h3, h4, h5, h6 {
 	background-color: #f8f8f8;
 }
 
-.k-main .details .article .content .aligncenter {
+.k-main .details .article .content .alignleft {
+	float: left;
 	display: block;
+}
+
+.k-main .details .article .content .aligncenter {
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -1026,6 +1038,10 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: 4px;
 	color: #fff;
 	font-size: 13px;
+}
+
+.wp-block-image figcaption {
+	text-align: center;
 }
 
 @media screen and (max-width: 768px) {
