@@ -3,7 +3,7 @@
  * 文章内容
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2020.02.23
+ * @version 2020.03.14
  */
 
 get_header(); ?>
@@ -26,7 +26,7 @@ get_header(); ?>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page"> <?php _e('正文' , 'kratos'); ?></li>
                             </ol>
-                        </div><!-- .breadcrumb-box -->
+                        </div>
                         <div class="header">
                             <h1 class="title"><?php the_title(); ?></h1>
                             <div class="meta">
@@ -34,7 +34,7 @@ get_header(); ?>
                             <i class="fas fa-comment-alt" style="margin-right: 4px"></i><span><?php comments_number('0', '1', '%'); ?></span>
                             <?php if (current_user_can('edit_posts')){ echo '<span>'; edit_post_link(__('编辑文章', 'kratos')); echo '</span>'; }; ?>
                             </div>
-                        </div><!-- .header -->
+                        </div>
                         <div class="content">
                             <?php
                             if(kratos_option('s_singletop',false)){
@@ -47,6 +47,33 @@ get_header(); ?>
                                 }
                             }
                             the_content();
+                            wp_link_pages(
+                                array(
+                                    'before' => '<div class="paginations text-center">',
+                                    'after' => '',
+                                    'next_or_number' => 'next',
+                                    'previouspagelink' => __('<span>上一页</span>', 'kratos'),
+                                    'nextpagelink' => ''
+                                )
+                            );
+                            wp_link_pages(
+                                array(
+                                    'before' => '',
+                                    'after' => '',
+                                    'next_or_number' => 'number',
+                                    'link_before' =>'<span>',
+                                    'link_after'=>'</span>'
+                                )
+                            );
+                            wp_link_pages(
+                                array(
+                                    'before' => '',
+                                    'after' => '</div>',
+                                    'next_or_number' => 'next',
+                                    'previouspagelink' => '',
+                                    'nextpagelink' => __('<span>下一页</span>', 'kratos')
+                                )
+                            );
                             if(kratos_option('s_singledown',false)){
                                 if(kratos_option('s_singledown_links')){
                                     echo '<a href="'. kratos_option('s_singledown_links') .'" target="_blank" rel="noreferrer">';
@@ -68,8 +95,8 @@ get_header(); ?>
                                     <span><i class="fas fa-sync-alt" style="margin-right: 4px"></i><?php the_modified_date('Y 年 m 月 d 日'); ?></span>
                                 </div>
                             </div>
-                        </div><!-- .footer -->
-                    </div><!-- .article -->
+                        </div>
+                    </div>
                 <?php endif; ?>
                 <nav class="navigation post-navigation clearfix" role="navigation">
                     <?php
@@ -83,11 +110,11 @@ get_header(); ?>
                     }?>
                 </nav>
                 <?php comments_template(); ?>
-            </div><!-- .details -->
+            </div>
             <div class="col-lg-4 sidebar d-none d-lg-block">
                 <?php dynamic_sidebar('sidebar_tool'); ?>
-            </div><!-- .sidebar -->
+            </div>
         </div>
     </div>
-</div><!-- .k-main -->
+</div>
 <?php get_footer(); ?>
