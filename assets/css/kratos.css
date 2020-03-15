@@ -3,7 +3,6 @@
 >>> Kratos 样式表
 >>> Seaton Jiang <seaton@vtrois.com>
 ----------------------------------------------------------------
-
 	1.  全局
 	2.  导航
 	3.  Banner
@@ -15,7 +14,6 @@
 	9.  小工具
 	10. 404
 	11. 页脚
-
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -425,16 +423,20 @@ h1, h2, h3, h4, h5, h6 {
 .k-main .details .article .content .paginations a span {
 	padding: 7px 12px;
 	border: solid 1px #00a2ff;
+	border-radius: 4px;
 	background-color: #f0f8ff;
+	box-shadow: 0 1px 5px rgba(0, 162, 255, .1);
 	color: #00a2ff;
 }
 
 .k-main .details .article .content .paginations .current span, .k-main .details .article .content .paginations a span:hover {
 	padding: 7px 12px;
 	border: solid 1px #00a2ff;
+	border-radius: 4px;
 	background: #00a2ff;
 	color: #ffffff;
-	font-weight: 400;
+	box-shadow: 0 1px 5px rgba(0, 162, 255, .1);
+	transition: 0.3s;
 }
 
 /*--------------------------------------------------------------
