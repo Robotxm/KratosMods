@@ -3,7 +3,7 @@
  * 文章内容
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2020.03.14
+ * @version 2020.03.16
  */
 
 get_header(); ?>
@@ -85,6 +85,20 @@ get_header(); ?>
                             }
                             ?>
                         </div>
+                        <?php if(kratos_option('g_cc_switch', false)){ 
+                            $cc_array = array(
+                                'one' => __('知识共享署名 4.0 国际许可协议', 'kratos'),
+                                'two' => __('知识共享署名-非商业性使用 4.0 国际许可协议', 'kratos'),
+                                'three' => __('知识共享署名-禁止演绎 4.0 国际许可协议', 'kratos'),
+                                'four' => __('知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议', 'kratos'),
+                                'five' => __('知识共享署名-相同方式共享 4.0 国际许可协议', 'kratos'),
+                                'six' => __('知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议', 'kratos'),
+                            );
+                            $select_cc = $cc_array[kratos_option('g_cc', 'one')];
+                            echo '<div class="copyright"><span class="text-center">';
+                            printf( __( '本作品采用 %s 进行许可','kratos' ) , $select_cc );
+                            echo '</span></div>';
+                        } ?>
                         <div class="footer clearfix">
                             <div class="tags float-left">
                                 <span class="fas fa-tags" style="margin-right: 4px"></span>

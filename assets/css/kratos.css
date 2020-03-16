@@ -956,7 +956,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin-right: 16px;
 }
 
-.k-main .details .article .content p>img {
+.k-main .details .article .content p>img, .k-main .details .article .content p a>img {
 	display: block;
 }
 
@@ -979,7 +979,8 @@ h1, h2, h3, h4, h5, h6 {
 	display: table;
 	overflow: auto;
 	width: 100%;
-	word-break: keep-all;
+	table-layout: fixed;
+	word-break: break-all;
 }
 
 .k-main .details .article .content table th, .k-main .details .article .content table td {
@@ -1119,6 +1120,10 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	.k-main .details .article .content p {
 		font-size: 15px;
+	}
+	.k-main .details .article .content table {
+		display: block;
+		word-break: keep-all;
 	}
 	.k-main .details .article .header .meta span:not(:first-child) {
 		margin-left: 5px;
