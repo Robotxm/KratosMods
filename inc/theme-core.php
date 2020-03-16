@@ -27,8 +27,8 @@ add_action('after_setup_theme', 'theme_languages');
 // 资源加载
 function theme_autoload()
 {
-    $enable_cdn = kratos_option('g_cdn', false)
-    if (kratos_option('g_cdn', false)) {
+    $enable_cdn = kratos_option('g_cdn', false);
+    if ($enable_cdn) {
         $cdn_array = array(
             'maocloud' => 'https://n3.cdn.vtrois.com/kratos/' . THEME_VERSION,
             'jsdelivr' => 'https://cdn.jsdelivr.net/gh/Robotxm/KratosMods@' . THEME_VERSION,
