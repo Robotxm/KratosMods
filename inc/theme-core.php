@@ -27,10 +27,11 @@ add_action('after_setup_theme', 'theme_languages');
 // 资源加载
 function theme_autoload()
 {
+    $enable_cdn = kratos_option('g_cdn', false)
     if (kratos_option('g_cdn', false)) {
         $cdn_array = array(
             'maocloud' => 'https://n3.cdn.vtrois.com/kratos/' . THEME_VERSION,
-            'jsdelivr' => 'https://cdn.jsdelivr.net/gh/vtrois/kratos@' . THEME_VERSION,
+            'jsdelivr' => 'https://cdn.jsdelivr.net/gh/Robotxm/KratosMods@' . THEME_VERSION,
         );
         $dir = $cdn_array[kratos_option('g_cdn_n3', 'maocloud')];
     } else {
