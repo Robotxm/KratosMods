@@ -553,7 +553,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0;
 	font-size: 15px;
 	font-family: 'Source Serif Pro', 'Source Han Serif SC', 'Noto Serif SC', 'Source Han Sans SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Segoe UI', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: 500;
+	font-weight: 400;
 }
 
 .k-main .board .article-panel .a-meta {
@@ -819,7 +819,7 @@ h1, h2, h3, h4, h5, h6 {
 	white-space: pre-line;
 	text-indent: 2em;
 	font-family: 'Source Serif Pro', 'Source Han Serif SC', 'Noto Serif SC', 'Source Han Sans SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Segoe UI', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 30px;
 }
 
@@ -1432,7 +1432,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	font-size: 14px;
 	font-family: 'Source Serif Pro', 'Source Han Serif SC', 'Noto Serif SC', 'Source Han Sans SC', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Segoe UI', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: 500;
+	font-weight: 400;
 }
 
 .k-main .details .comments .comment .info .meta, .k-main .details .comments .comment .info .meta a {
