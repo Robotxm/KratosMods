@@ -48,6 +48,9 @@ function theme_autoload()
         if (kratos_option('g_animate', false)) {
             wp_enqueue_style('animate', $dir . '/assets/css/animate.min.css', array(), '3.7.2');
         }
+        if (kratos_option('g_fontawesome', false)) {
+            wp_enqueue_style('fontawesome', $dir . '/assets/css/fontawesome.min.css', array(), '5.13.0');
+        }
         wp_enqueue_style('kratos', $dir . '/assets/css/kratos.min.css', array(), THEME_VERSION);
         wp_enqueue_style('custom', get_template_directory_uri() . '/custom/custom.css', array(), THEME_VERSION);
         // js
@@ -167,7 +170,7 @@ add_filter('get_avatar', 'get_https_avatar');
 
 // 主题更新检测
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/Vtrois/Kratos/',
+    'https://n3.cdn.vtrois.com/kratos/version.json',
     get_template_directory() . '/functions.php',
     'Kratos'
 );
