@@ -1020,6 +1020,10 @@ h1, h2, h3, h4, h5, h6 {
 	display: block;
 }
 
+.k-main .details .article .content .wp-smiley {
+	display: inline;
+}
+
 .k-main .details .article .content .aligncenter {
 	margin-right: auto;
 	margin-left: auto;
