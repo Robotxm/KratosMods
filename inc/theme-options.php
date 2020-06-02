@@ -92,6 +92,14 @@ function kratos_options()
     );
 
     $options[] = array(
+        'name' => __('Google Webfonts', 'kratos'),
+        'desc' => __('使用 Google Webfonts', 'kratos'),
+        'std' => '0',
+        'id' => 'g_webfonts',
+        'type' => 'checkbox',
+    );
+
+    $options[] = array(
         'name' => __('静态资源加速', 'kratos'),
         'desc' => __('开启静态资源加速（CSS、JS、Font）', 'kratos'),
         'std' => '1',
