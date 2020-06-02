@@ -170,9 +170,9 @@ add_filter('get_avatar', 'get_https_avatar');
 
 // 主题更新检测
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://n3.cdn.vtrois.com/kratos/version.json',
+    'https://cdn.jsdelivr.net/gh/robotxm/kratosmods/inc/update-checker/version.json',
     get_template_directory() . '/functions.php',
-    'Kratos'
+    'KratosMods'
 );
 
 // 禁止生成多种尺寸图片
