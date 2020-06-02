@@ -23,7 +23,7 @@
 body {
 	overflow-x: hidden;
 	background: #f5f5f5;
-	font-weight: 350;
+	font-weight: 400;
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, opensans, Optima, "Source Sans Pro", "Noto Sans", "Source Han Sans SC", "Noto Sans SC", "Microsoft Yahei", sans-serif;
 	line-height: 1.8;
@@ -183,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: 0;
 	color: #343a40;
 	text-transform: uppercase;
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 12px;
 }
 
@@ -1053,7 +1053,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .k-main .details .article .content table th {
-	font-weight: bold;
+	font-weight: 700;
 }
 
 .k-main .details .article .content table tr:nth-child(2n) {
