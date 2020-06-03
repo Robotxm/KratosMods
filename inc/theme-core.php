@@ -142,14 +142,6 @@ remove_filter('the_title', 'capital_P_dangit', 11);
 remove_filter('the_content', 'capital_P_dangit', 11);
 remove_filter('comment_text', 'capital_P_dangit', 31);
 
-// 禁用后台 Google Fonts
-add_filter('style_loader_src', function ($href) {
-    if (strpos($href, "fonts.googleapis.com") === false) {
-        return $href;
-    }
-    return false;
-});
-
 // 禁用 Auto Embeds
 remove_filter('the_content', array($GLOBALS['wp_embed'], 'autoembed'), 8);
 
