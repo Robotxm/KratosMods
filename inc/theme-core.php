@@ -162,7 +162,7 @@ add_filter('get_avatar', 'get_https_avatar');
 
 // 主题更新检测
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://cdn.jsdelivr.net/gh/robotxm/kratosmods/inc/update-checker/version.json',
+    'https://raw.githubusercontent.com/Robotxm/KratosMods/master/inc/update-checker/version.json',
     get_template_directory() . '/functions.php',
     'KratosMods'
 );
