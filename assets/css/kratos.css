@@ -608,7 +608,7 @@ button:focus {
   top: -2px;
   display: inline-block;
   margin-right: 5px;
-  padding: 4px 6px 3px;
+  padding: 4px 6px;
   border-radius: 4px;
   background-color: #00a2ff;
   color: #fff;
@@ -749,10 +749,6 @@ button:focus {
     margin: 0 0 9px;
     padding-top: 8px;
     box-sizing: unset;
-  }
-
-  .k-main .board .article-panel .a-post .header .label {
-      display: none;
   }
 
   .k-main .board .article-panel .a-post .header .title {
