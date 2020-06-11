@@ -86,14 +86,6 @@ function kratos_options()
     );
 
     $options[] = array(
-        'name' => __('Font Awesome', 'kratos'),
-        'desc' => __('开启 Font Awesome 字体', 'kratos'),
-        'std' => '0',
-        'id' => 'g_fontawesome',
-        'type' => 'checkbox',
-    );
-
-    $options[] = array(
         'name' => __('Google Webfonts', 'kratos'),
         'desc' => __('使用 Google Webfonts', 'kratos'),
         'std' => '0',

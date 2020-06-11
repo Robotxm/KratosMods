@@ -45,9 +45,7 @@ function theme_autoload()
         if (kratos_option('g_animate', false)) {
             wp_enqueue_style('animate', ASSET_PATH . '/assets/css/animate.min.css', array(), '3.7.2');
         }
-        if (kratos_option('g_fontawesome', false)) {
-            wp_enqueue_style('fontawesome', ASSET_PATH . '/assets/css/fontawesome.min.css', array(), '5.13.0');
-        }
+        wp_enqueue_style('fontawesome', ASSET_PATH . '/assets/css/fontawesome.min.css', array(), '5.13.0');
         if (kratos_option('g_webfonts', false)) {
             wp_enqueue_style('googlefonts', 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;700&display=swap', array(), null);
         }
