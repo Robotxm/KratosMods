@@ -1578,6 +1578,12 @@ button:focus {
   list-style: none;
 }
 
+.k-main .details .comments .comment img.wp-smiley {
+  width: 1em !important;
+  height: 1em !important;
+  margin-top: -4px;
+}
+
 .k-main .details .comments .list > li {
   border-bottom: 1px solid #f0f0f0;
 }
