@@ -5,7 +5,7 @@
 ; (function () {
 	'use strict'
 
-	var KRATOS_VERSION = '3.0.10-Fix1'
+	var KRATOS_VERSION = '3.0.11'
 
 	var navbarConfig = function () {
 		$('#navbutton').on('click', function () {
@@ -123,7 +123,21 @@
 		})
 	}
 
+	var accordionConfig = function () {
+		$(document).on('click', '.acheader', function (event) {
+			var $this = $(this)
+			$this.closest('.accordion').find('.contents').slideToggle(300)
+			if ($this.closest('.accordion').hasClass('active')) {
+				$this.closest('.accordion').removeClass('active')
+			} else {
+				$this.closest('.accordion').addClass('active')
+			}
+			event.preventDefault()
+		})
+	}
+
 	$(function () {
+		accordionConfig()
 		navbarConfig()
 		tooltipConfig()
 		gotopConfig()

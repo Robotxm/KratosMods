@@ -882,7 +882,7 @@ button:focus {
   margin-top: 24px;
   margin-bottom: 16px;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 32px;
 }
 
 .k-main .details .article h1 {
@@ -940,11 +940,11 @@ button:focus {
 }
 
 .k-main .details .article .content h5 {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .k-main .details .article .content h6 {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .k-main .details .article .content p {
@@ -1236,6 +1236,44 @@ button:focus {
   border-radius: 4px;
   color: #fff;
   font-size: 13px;
+}
+
+.k-main .details .article .content .accordion {
+  margin-bottom: 16px;
+  border: 1px solid #e5e8ed;
+}
+
+.k-main .details .article .content .accordion .acheader {
+  position: relative;
+  padding: 5px 15px;
+  background: #f7f8fa;
+}
+
+.k-main .details .article .content .accordion .acheader span {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.k-main .details .article .content .accordion .acheader .icon {
+  position: absolute;
+  right: 15px;
+  font-size: 17px;
+}
+
+.k-main .details .article .content .accordion.active .icon {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.k-main .details .article .content .accordion .contents {
+  display: none;
+  border-top: 1px solid #e6e6e6;
+}
+
+.k-main .details .article .content .accordion .contents .inner {
+  padding: 5px 15px;
 }
 
 @media screen and (max-width: 768px) {
@@ -1562,11 +1600,11 @@ button:focus {
 
 .k-main .details .comments .comment .info .author_name {
   display: inline-block;
+  margin-top: 3px;
   color: #252525;
   font-weight: 600;
-  font-size: 14px;
-  margin-top: 3px;
   font-style: normal;
+  font-size: 14px;
   line-height: 1.375;
 }
 

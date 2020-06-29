@@ -245,10 +245,9 @@ class Options_Framework_Interface
                     <h4>' . __('讨论交流', 'kratos') . '</h4>
                     <img src="' . ASSET_PATH . '/inc/options-framework/images/discuss.png">
 					<h4>' . __('版权声明', 'kratos') . '</h4>
-					<p>' . __('主题源码使用 <a href="https://github.com/Vtrois/Kratos/blob/master/LICENSE" target="_blank">MIT 协议</a> 进行许可，说明文档使用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 进行许可。', 'kratos') . '</p>
+					<p>' . __('主题源码使用 <a href="https://github.com/vtrois/kratos/blob/master/LICENSE" target="_blank">MIT 协议</a> 进行许可，说明文档使用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 进行许可。', 'kratos') . '</p>
 					<h4>' . __('打赏支持', 'kratos') . '</h4>
 					<img src="' . ASSET_PATH . '/inc/options-framework/images/donate.png">
-                    <p class="tips">' . __('项目的发展需要您的支持和鼓励，打赏时请确认作者姓名为<b>姜学栋</b>', 'kratos') . '</p>
                     <h4>' . __('赞助商', 'kratos') . '</h4>
                     <a href="https://www.maoyuncloud.com/" target="_blank"><img class="maocloud" src="' . ASSET_PATH . '/inc/options-framework/images/maocloud.png"></a>
 				    </div>';
