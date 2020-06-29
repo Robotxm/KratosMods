@@ -3,7 +3,7 @@
  * 文章相关函数
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2020.04.12
+ * @version 2020.06.13
  */
 
 // 文章链接添加 target 和 rel
@@ -337,13 +337,11 @@ function smilies_reset()
 }
 smilies_reset();
 
-function smilies_custom_button($context)
+function smilies_custom_button()
 {
-    $context .= '<style>.smilies-wrap{background:#fff;border: 1px solid #ccc;box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.24);padding: 10px;position: absolute;top: 60px;width: 400px;display:none}.smilies-wrap img{height:24px;width:24px;cursor:pointer;margin-bottom:5px} .is-active.smilies-wrap{display:block}@media screen and (max-width: 782px){ #wp-content-media-buttons a { font-size: 14px; padding: 0 14px; }}</style><a id="insert-media-button" style="position:relative" class="button insert-smilies add_smilies" data-editor="content" href="javascript:;"><span class="dashicons dashicons-smiley" style="line-height: 26px;"></span>' . __('添加表情', 'kratos') . '</a><div class="smilies-wrap">' . get_wpsmiliestrans() . '</div><script>jQuery(document).ready(function(){jQuery(document).on("click", ".insert-smilies",function() { if(jQuery(".smilies-wrap").hasClass("is-active")){jQuery(".smilies-wrap").removeClass("is-active");}else{jQuery(".smilies-wrap").addClass("is-active");}});jQuery(document).on("click", ".add-smily",function() { send_to_editor(" " + jQuery(this).data("smilies") + " ");jQuery(".smilies-wrap").removeClass("is-active");return false;});});</script>';
-    return $context;
+    printf('<style>.smilies-wrap{background:#fff;border: 1px solid #ccc;box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.24);padding: 10px;position: absolute;top: 60px;width: 400px;display:none}.smilies-wrap img{height:24px;width:24px;cursor:pointer;margin-bottom:5px} .is-active.smilies-wrap{display:block}@media screen and (max-width: 782px){ #wp-content-media-buttons a { font-size: 14px; padding: 0 14px; }}</style><a id="insert-media-button" style="position:relative" class="button insert-smilies add_smilies" data-editor="content" href="javascript:;"><span class="dashicons dashicons-smiley" style="line-height: 26px;"></span>' . __('添加表情', 'kratos') . '</a><div class="smilies-wrap">' . get_wpsmiliestrans() . '</div><script>jQuery(document).ready(function(){jQuery(document).on("click", ".insert-smilies",function() { if(jQuery(".smilies-wrap").hasClass("is-active")){jQuery(".smilies-wrap").removeClass("is-active");}else{jQuery(".smilies-wrap").addClass("is-active");}});jQuery(document).on("click", ".add-smily",function() { send_to_editor(" " + jQuery(this).data("smilies") + " ");jQuery(".smilies-wrap").removeClass("is-active");return false;});});</script>');
 }
-
-add_action('media_buttons_context', 'smilies_custom_button');
+add_action('media_buttons', 'smilies_custom_button');
 
 function get_wpsmiliestrans()
 {
@@ -385,3 +383,59 @@ function recover_comment_fields($comment_fields){
     return $comment_fields;
 }
 add_filter('comment_form_fields','recover_comment_fields');
+
+$new_meta_boxes =
+array(
+  "description" => array(
+    "name" => "seo_description",
+    "std" => "",
+    "title" => __( '描述', 'kratos' )
+),
+  "keywords" => array(
+    "name" => "seo_keywords",
+    "std" => "",
+    "title" => __( '关键词', 'kratos' )
+)
+);
+
+function seo_meta_boxes() {
+    $post_types = get_post_types();
+    add_meta_box( 'meta-box-id', __( 'SEO 设置', 'kratos' ), 'post_seo_callback', $post_types );
+}
+add_action( 'add_meta_boxes', 'seo_meta_boxes' );
+
+function post_seo_callback( $post ) {
+    global $new_meta_boxes;
+
+    foreach($new_meta_boxes as $meta_box) {
+      $meta_box_value = get_post_meta($post->ID, $meta_box['name'].'_value', true);
+  
+      if($meta_box_value == "")
+        $meta_box_value = $meta_box['std'];
+  
+      echo '<h3 style="font-size: 14px; padding: 9px 0; margin: 0; line-height: 1.4;">'.$meta_box['title'].'</h3>';
+      echo '<textarea cols="60" rows="3" style="width:100%" name="'.$meta_box['name'].'_value">'.$meta_box_value.'</textarea><br/>';
+    }
+    
+    echo '<input type="hidden" name="metaboxes_nonce" id="metaboxes_nonce" value="'.wp_create_nonce( plugin_basename(__FILE__) ).'" />';
+}
+
+function wpdocs_save_meta_box( $post_id ) {
+    global $new_meta_boxes;
+   
+    if ( !wp_verify_nonce( $_POST['metaboxes_nonce'], plugin_basename(__FILE__) ))
+      return;
+     
+    if ( !current_user_can( 'edit_posts', $post_id ))
+      return;
+                 
+    foreach($new_meta_boxes as $meta_box) {
+      $data = $_POST[$meta_box['name'].'_value'];
+  
+      if($data == "")
+        delete_post_meta($post_id, $meta_box['name'].'_value', get_post_meta($post_id, $meta_box['name'].'_value', true));
+      else
+        update_post_meta($post_id, $meta_box['name'].'_value', $data);
+     }
+}
+add_action( 'save_post', 'wpdocs_save_meta_box' );
