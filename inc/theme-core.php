@@ -3,15 +3,11 @@
  * 核心函数
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2020.06.25
+ * @version 2020.07.29
  */
 
 if (kratos_option('g_cdn', false)) {
-    $cdn_array = array(
-        'maocloud' => 'https://n3.cdn.vtrois.com/kratos/' . THEME_VERSION,
-        'jsdelivr' => 'https://cdn.jsdelivr.net/gh/robotxm/kratosmods@' . THEME_VERSION,
-    );
-    $asset_path = $cdn_array[kratos_option('g_cdn_n3', 'jsdelivr')];
+    $asset_path = 'https://cdn.jsdelivr.net/gh/robotxm/kratosmods@' . THEME_VERSION;
 } else {
     $asset_path = get_template_directory_uri();
 }
@@ -160,7 +156,7 @@ add_filter('get_avatar', 'get_https_avatar');
 
 // 主题更新检测
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://raw.githubusercontent.com/Robotxm/KratosMods/master/inc/update-checker/version.json',
+    'https://github.com/Robotxm/KratosMods/',
     get_template_directory() . '/functions.php',
     'KratosMods'
 );

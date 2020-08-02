@@ -3,7 +3,7 @@
  * 主题选项
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2020.06.25
+ * @version 2020.07.29
  */
 
 function getrobots()
@@ -41,11 +41,6 @@ function kratos_options()
 	$top_array = array(
 		'banner' => __( '图片导航', 'kratos' ),
 		'color' => __( '颜色导航', 'kratos' ),
-	);
-
-	$cdn_array = array(
-        'maocloud' => __( '猫云', 'kratos' ),
-		'jsdelivr' => __( 'jsDelivr', 'kratos' ),
 	);
 
     $options = array();
@@ -99,15 +94,6 @@ function kratos_options()
         'std' => '1',
         'id' => 'g_cdn',
         'type' => 'checkbox',
-    );
-
-    $options[] = array(
-        'desc' => __('选择 CDN 加速节点', 'kratos'),
-        'id' => 'g_cdn_n3',
-        'std' => 'jsdelivr',
-        'type' => 'select',
-        'class' => 'hidden',
-        'options' => $cdn_array,
     );
 
     $options[] = array(
@@ -413,7 +399,7 @@ function kratos_options()
 
     $options[] = array(
         'name' => __('授权方式', 'kratos'),
-        'desc' => __('填写登录鉴权的方式', 'kratos'),
+        'desc' => __('填写登录鉴权的方式，ssl 或 tls', 'kratos'),
         'id' => 'm_sec',
         'class' => 'hidden',
         'type' => 'text',
