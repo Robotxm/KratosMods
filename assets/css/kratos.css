@@ -1958,7 +1958,7 @@ button:focus {
 
 .k-main .sidebar .widget_links ul li {
   display: inline-block;
-  margin: 0 2px 4px 0;
+  margin: 0 1px 10px 0;
   padding: 2px 4px;
   width: 165px;
   color: #333;
