@@ -303,7 +303,7 @@ button:focus {
   }
 
   .k-nav .navbar-brand {
-    padding: 10px 20px;
+    padding: 6px 0;
     color: #fff;
   }
 
@@ -545,6 +545,16 @@ button:focus {
 5. 文章列表
 --------------------------------------------------------------*/
 
+.k-main .board .article-carousel {
+  margin: 0 0 23px;
+}
+
+.k-main .board .article-carousel li {
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
 .k-main .board .article-panel {
   margin: 0 0 23px;
   border-radius: 4px;
@@ -609,6 +619,10 @@ button:focus {
   white-space: nowrap;
   font-size: 12px;
   line-height: 14px;
+}
+
+.k-main .board .article-panel .a-post .header span.label {
+  cursor: default;
 }
 
 .k-main .board .article-panel .a-post .header .label .label-arrow {
