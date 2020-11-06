@@ -3,7 +3,7 @@
  * 核心函数
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2020.08.04
+ * @version 2020.10.26
  */
 
 if (kratos_option('g_cdn', false)) {
@@ -154,9 +154,6 @@ remove_action('template_redirect', 'rest_output_link_header', 11);
 remove_filter('the_title', 'capital_P_dangit', 11);
 remove_filter('the_content', 'capital_P_dangit', 11);
 remove_filter('comment_text', 'capital_P_dangit', 31);
-
-// 禁用 Auto Embeds
-remove_filter('the_content', array($GLOBALS['wp_embed'], 'autoembed'), 8);
 
 // 替换国内 Gravatar 源
 function get_https_avatar($avatar)
