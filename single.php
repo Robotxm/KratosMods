@@ -3,7 +3,7 @@
  * 文章内容
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2021.01.06
+ * @version 2020.06.08
  */
 
 get_header();
@@ -48,8 +48,8 @@ $select_col = $col_array[kratos_option('g_article_widgets', 'two_side')];
                         <div class="header">
                             <h1 class="title"><?php the_title(); ?></h1>
                             <div class="meta">
-                            <i class="fas fa-calendar-day" style="margin-right: 4px"></i><span><?php echo get_the_date(); ?></span>
-                            <i class="fas fa-comment-alt" style="margin-right: 4px"></i><span><?php comments_number('0', '1', '%'); _e('条评论', 'kratos'); ?></span>
+                            <i class="fas fa-calendar-day" style="margin-right: 4px"></i><span><?php echo get_the_date('Y 年 m 月 d 日'); ?></span>
+                            <i class="fas fa-comment-alt" style="margin-right: 4px"></i><span><?php comments_number('0', '1', '%'); ?></span>
                             <?php if (current_user_can('edit_posts')){ echo '<span>'; edit_post_link(__('编辑文章', 'kratos')); echo '</span>'; }; ?>
                             </div>
                         </div>
@@ -123,8 +123,8 @@ $select_col = $col_array[kratos_option('g_article_widgets', 'two_side')];
                                 <?php if ( get_the_tags() ) { the_tags('', ' ', ''); } else{ echo '<a>' . __( '暂无' , 'kratos') . '</a>';  }?>
                             </div>
                             <div class="tool float-right d-none d-lg-block">
-                                <div data-toggle="tooltip" data-html="true" data-original-title="<?php _e('最后更新：','kratos'); the_modified_date() ?>">
-                                    <span><i class="fas fa-sync-alt" style="margin-right: 4px"></i><?php the_modified_date(); ?></span>
+                                <div data-toggle="tooltip" data-html="true" data-original-title="<?php _e('最后更新：','kratos'); the_modified_date( 'Y-m-d H:i' ) ?>">
+                                    <span><i class="fas fa-sync-alt" style="margin-right: 4px"></i><?php the_modified_date('Y 年 m 月 d 日'); ?></span>
                                 </div>
                             </div>
                         </div>

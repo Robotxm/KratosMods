@@ -3,7 +3,7 @@
  * 核心函数
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2020.12.17
+ * @version 2020.10.26
  */
 
 if (kratos_option('g_cdn', false)) {
@@ -39,7 +39,7 @@ function theme_autoload()
         wp_enqueue_style('bootstrap', ASSET_PATH . '/assets/css/bootstrap.min.css', array(), '4.5.0');
         wp_enqueue_style('layer', ASSET_PATH . '/assets/css/layer.min.css', array(), '3.1.1');
         if (kratos_option('g_animate', false)) {
-            wp_enqueue_style('animate', ASSET_PATH . '/assets/css/animate.min.css', array(), '4.1.1');
+            wp_enqueue_style('animate', ASSET_PATH . '/assets/css/animate.min.css', array(), '3.7.2');
         }
         wp_enqueue_style('fontawesome', ASSET_PATH . '/assets/css/fontawesome.min.css', array(), '5.13.0');
         if (kratos_option('g_webfonts', false)) {
@@ -48,21 +48,17 @@ function theme_autoload()
         wp_enqueue_style('kratos', ASSET_PATH . '/assets/css/kratos.min.css', array(), THEME_VERSION);
         if (kratos_option('g_adminbar', true)) {
             $admin_bar_css = "
-            @media screen and (min-width: 782px) {
-                .k-nav {
-                    padding-top: 40px;
-                }
-            }
             @media screen and (max-width: 782px) {
-                .k-nav {
+                .k-nav{
                     padding-top: 54px;
                 }
             }
-            @media screen and (min-width: 992px) {
-                .k-nav {
-                    height: 102px;
+            @media screen and (min-width: 782px) {
+                .k-nav{
+                    padding-top: 40px;
                 }
-            }";
+            }
+            ";
             if (current_user_can('level_10')) {
                 wp_add_inline_style('kratos', $admin_bar_css);
             }
@@ -189,13 +185,7 @@ if (kratos_option('g_removeimgsize', false)) {
         unset($sizes['medium']);
         unset($sizes['large']);
         unset($sizes['medium_large']);
-        unset($sizes['1536x1536']);
-        unset($sizes['2048x2048']);
         return $sizes;
     }
     add_filter('intermediate_image_sizes_advanced', 'remove_default_images');
-    // add_filter('big_image_size_threshold', '__return_false');
-
-    remove_image_size('1536x1536');
-    remove_image_size('2048x2048');
 }
