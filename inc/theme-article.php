@@ -44,53 +44,6 @@ function imgnofollow($content)
 }
 add_filter('the_content', 'imgnofollow');
 
-// 文章点赞
-function love()
-{
-    global $wpdb, $post;
-    $id = $_POST["um_id"];
-    $action = $_POST["um_action"];
-    if ($action == 'love') {
-        $raters = get_post_meta($id, 'love', true);
-        $expire = time() + 99999999;
-        $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
-        setcookie('love_' . $id, $id, $expire, '/', $domain, false);
-        if (!$raters || !is_numeric($raters)) {
-            update_post_meta($id, 'love', 1);
-        } else {
-            update_post_meta($id, 'love', ($raters + 1));
-        }
-        echo get_post_meta($id, 'love', true);
-    }
-    die;
-}
-add_action('wp_ajax_nopriv_love', 'love');
-add_action('wp_ajax_love', 'love');
-
-// 文章阅读次数统计
-function set_post_views()
-{
-    if (is_singular()) {
-        global $post;
-        $post_ID = $post->ID;
-        if ($post_ID) {
-            $post_views = (int) get_post_meta($post_ID, 'views', true);
-            if (!update_post_meta($post_ID, 'views', ($post_views + 1))) {
-                add_post_meta($post_ID, 'views', 1, true);
-            }
-        }
-    }
-}
-add_action('wp_head', 'set_post_views');
-
-function get_post_views($echo = 1)
-{
-    global $post;
-    $post_ID = $post->ID;
-    $views = (int) get_post_meta($post_ID, 'views', true);
-    return $views;
-}
-
 // 文章列表简介内容
 function excerpt_length($length)
 {
