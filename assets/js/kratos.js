@@ -5,7 +5,7 @@
 (function () {
   "use strict";
 
-  var KRATOS_VERSION = "3.2.4";
+  var KRATOS_VERSION = "3.2.1";
 
   var navbarConfig = function () {
     $("#navbutton").on("click", function () {
@@ -107,11 +107,9 @@
           um_id: id,
           um_action: action,
         };
-        $.post(
-          kratos.site + "/wp-admin/admin-ajax.php",
-          ajax_data,
-          function (data) {}
-        );
+        $.post(kratos.site + "/wp-admin/admin-ajax.php", ajax_data, function (
+          data
+        ) {});
         return false;
       }
     };

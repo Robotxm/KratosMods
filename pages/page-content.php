@@ -3,17 +3,10 @@
  * 文章列表
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2021.01.06
+ * @version 2020.09.27
  */
 ?>
 <div class="article-panel">
-    <span class="a-card d-none d-md-block d-lg-block">
-        <?php $article_comment = kratos_option('g_article_comment', '20'); $article_love = kratos_option('g_article_love', '200'); if (is_sticky()) { ?>
-        <i class="kicon i-card-top"></i>
-		<?php } elseif (findSinglecomments($post->ID) >= $article_comment || get_post_meta($post->ID, 'love', true) >= $article_love) { ?>
-		<i class="kicon i-card-hot"></i>
-		<?php } ?>
-	</span>
     <?php if (kratos_option('g_thumbnail',true)) { ?>
     <div class="a-thumb">
         <a href="<?php the_permalink(); ?>">
@@ -39,7 +32,7 @@
     </div>
     <div class="a-meta">
         <span class="float-left d-none d-md-block">
-            <span class="mr-2"><i class="far fa-calendar-alt"></i><?php echo echo get_the_date(); ?></span>
+            <span class="mr-2"><i class="far fa-calendar-alt"></i><?php echo get_the_date('Y 年 m 月 d 日'); ?></span>
             <span class="mr-2"><i class="far fa-comment-alt"></i><?php comments_number('0', '1', '%'); _e(' 条评论', 'kratos'); ?></span>
         </span>
         <span class="float-left d-block">
