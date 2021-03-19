@@ -3,7 +3,7 @@
  * 主题选项
  * @author Seaton Jiang <seaton@vtrois.com>
  * @license MIT License
- * @version 2020.12.14
+ * @version 2021.03.11
  */
 
 function getrobots()
@@ -18,6 +18,29 @@ function getrobots()
     $robots .= "Disallow: $path/wp-content/themes/\n";
 
     return $robots;
+}
+
+function getdomain($url)
+{
+    $rs = parse_url($url);
+    if (!isset($rs['host'])) {
+        return null;
+    }
+
+    $main_url = $rs['host'];
+    if (!strcmp(long2ip(sprintf('%u', ip2long($main_url))), $main_url)) {
+        return $main_url;
+    } else {
+        $arr = explode('.', $main_url);
+        $count = count($arr);
+        $endArr = array('com', 'net', 'org');
+        if (in_array($arr[$count - 2], $endArr)) {
+            $domain = $arr[$count - 3] . '.' . $arr[$count - 2] . '.' . $arr[$count - 1];
+        } else {
+            $domain = $arr[$count - 2] . '.' . $arr[$count - 1];
+        }
+        return $domain;
+    }
 }
 
 function kratos_options()
@@ -89,9 +112,9 @@ function kratos_options()
     );
 
     $options[] = array(	
-        'name' => __('多人模式', 'kratos'),	
-        'desc' => __('在文章列表显示当前文章作者，在文章页面页脚显示当前作者介绍', 'kratos'),	
-        'id' => 'multiusers',	
+        'name' => __('搜索增强', 'kratos'),	
+        'desc' => __('仅查找文章标题，而不全文搜索（适用于文章数量较多的站点）', 'kratos'),	
+        'id' => 'g_search',	
         'type' => 'checkbox',	
     );
 
@@ -118,6 +141,37 @@ function kratos_options()
         'id' => 'g_cdn',
         'type' => 'checkbox',
     );
+
+    $options[] = array(
+        'name' => __('自定义媒体文件名', 'kratos'),
+        'desc' => __('把图片类型的文件名改为 MD5 值命名', 'kratos'),
+        'id' => 'g_renameimg',
+        'std' => '0',
+        'type' => 'checkbox',
+    );
+
+    $options[] = array(
+        'desc' => __('把指定类型的文件名增加自定义前缀命名', 'kratos'),
+        'id' => 'g_renameother',
+        'type' => 'checkbox',
+    );
+
+    $options[] = array(
+        'desc' => __('请输入需要添加的前缀，前缀与文件名之间默认用 - 连接', 'kratos'),
+        'id' => 'g_renameother_prdfix',
+        'std' => getdomain(home_url()),
+        'class' => 'hidden',
+        'type' => 'text',
+    );
+
+    $options[] = array(
+        'desc' => __('请输入需要修改的类型，每个类型之间用 | 隔开', 'kratos'),
+        'id' => 'g_renameother_mime',
+        'std' => 'tar|zip|gz|gzip|rar|7z',
+        'class' => 'hidden',
+        'type' => 'text',
+    );
+
 
     $options[] = array(
         'name' => __('禁止生成缩略图', 'kratos'),
@@ -175,9 +229,31 @@ function kratos_options()
     $options[] = array(
         'name' => __('Gravatar 加速', 'kratos'),
         'desc' => __('开启 Gravatar 头像加速', 'kratos'),
-        'std' => '0',
+        'std' => '1',
         'id' => 'g_gravatar',
         'type' => 'checkbox',
+    );
+
+    $options[] = array(
+        'name' => __('腾讯云验证码', 'kratos'),
+        'desc' => __('开启后台登录页面验证码功能', 'kratos'),
+        'id' => 'g_007',
+        'std' => '0',
+        'type' => 'checkbox',
+    );
+
+    $options[] = array(
+        'name' => __('App ID', 'kratos'),
+        'id' => 'g_007_appid',
+        'class' => 'hidden',
+        'type' => 'text',
+    );
+
+    $options[] = array(
+        'name' => __('App Secret Key', 'kratos'),
+        'id' => 'g_007_appsecretkey',
+        'class' => 'hidden',
+        'type' => 'password',
     );
 
     $options[] = array(
@@ -407,6 +483,14 @@ function kratos_options()
     );
 
     $options[] = array(
+        'name' => __('附加功能', 'kratos'),
+        'desc' => __('关闭文章自动保存、修订版本功能', 'kratos'),
+        'id' => 'g_post_revision',
+        'type' => 'checkbox',
+        'std' => '1',
+    );
+
+    $options[] = array(
         'name' => __('文章打赏', 'kratos'),
         'desc' => __('开启文章页面打赏功能', 'kratos'),
         'id' => 'g_donate',
@@ -455,32 +539,6 @@ function kratos_options()
             'one_side' => $imagepath . 'col-12.png',
 			'two_side' => $imagepath . 'col-8.png')
 		);
-
-    $options[] = array(
-        'name' => __('站长配置', 'kratos'),
-        'type' => 'heading',
-    );
-
-    $options[] = array(
-        'name' => __('个人头像', 'kratos'),
-        'id' => 'a_gravatar',
-        'std' => ASSET_PATH . '/assets/img/gravatar.png',
-        'type' => 'upload',
-    );
-
-    $options[] = array(
-        'name' => __('个人昵称', 'kratos'),
-        'id' => 'a_nickname',
-        'std' => 'Kratos',
-        'type' => 'text',
-    );
-
-    $options[] = array(
-        'name' => __('个人简介', 'kratos'),
-        'std' => __('保持饥渴的专注，追求最佳的品质', 'kratos'),
-        'id' => 'a_about',
-        'type' => 'textarea',
-    );
 
     $options[] = array(
         'name' => __('邮件配置', 'kratos'),

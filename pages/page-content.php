@@ -43,9 +43,7 @@
             <span class="mr-2"><i class="far fa-comment-alt"></i><?php comments_number('0', '1', '%'); _e(' 条评论', 'kratos'); ?></span>
         </span>
         <span class="float-left d-block">
-            <?php if(kratos_option('multiusers',false)){ ?>
-                <span class="mr-2"><i class="kicon i-author"></i><?php echo get_the_author_meta('display_name'); ?></span>
-            <?php } ?>
+            <span class="mr-2"><i class="kicon i-author"></i><?php echo get_the_author_meta('display_name'); ?></span>
         </span>
         <span class="float-right">
             <a href="<?php the_permalink(); ?>"><?php _e('阅读全文', 'kratos'); ?><i class="fas fa-chevron-circle-right"></i></a>
